@@ -3,15 +3,15 @@ import styled from "styled-components";
 export const Container = styled.div`
   display: grid;
   grid-row: 1 / 3;
-  
+
   background-color: var(--dark-blue);
-  border-radius: 0.50rem;
+  border-radius: 0.5rem;
   color: #fff;
 
   > div {
     padding: 1.5rem;
     background-color: var(--blue);
-    border-radius: 0.50rem;
+    border-radius: 0.5rem;
 
     > img {
       width: 100px;
@@ -44,10 +44,9 @@ export const Container = styled.div`
 
     padding: 1.5rem;
 
-
     li {
       display: flex;
-    
+
       button {
         border: none;
         background-color: var(--dark-blue);
@@ -57,6 +56,17 @@ export const Container = styled.div`
         &:hover {
           color: #fff;
         }
+      }
+
+      .btn-weekly {
+        color: ${({ weekly }) => (weekly ? "#fff" : "var(--pale-blue)")};
+      }
+
+      .btn-daily {
+        color: ${({ daily }) => (daily ? "#fff" : "var(--pale-blue)")};
+      }
+      .btn-monthly {
+        color: ${({ monthly }) => (monthly ? "#fff" : "var(--pale-blue)")};
       }
 
       & + li {

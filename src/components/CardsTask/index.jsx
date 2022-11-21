@@ -2,11 +2,10 @@ import data from "../../data.json";
 
 import { Container } from "./styles";
 
-export function CardsTask() {
+export function CardsTask({ filter }) {
   return (
     <>
       {data.map((task) => {
-        console.log(task.icon);
         return (
           <Container
             key={task.title}
@@ -15,21 +14,21 @@ export function CardsTask() {
               backgroundColor: task.background,
             }}
           >
-            <img
-              src={process.env.PUBLIC_URL + task.icon}
-              alt={task.title}
-            />
+            <img src={process.env.PUBLIC_URL + task.icon} alt={task.title} />
             <article>
               <header>
                 <strong>{task.title}</strong>
                 <button>
-                  <img src={process.env.PUBLIC_URL + "images/icon-ellipsis.svg"} alt="Ellipsis" />
+                  <img
+                    src={process.env.PUBLIC_URL + "images/icon-ellipsis.svg"}
+                    alt="Ellipsis"
+                  />
                 </button>
               </header>
 
-              <h2>{task.timeframes.weekly.current}hrs</h2>
+              <h2>{task.timeframes[filter].current}hrs</h2>
 
-              <span>Last Week - {task.timeframes.weekly.previous}hrs</span>
+              <span>Last Week - {task.timeframes[filter].previous}hrs</span>
             </article>
           </Container>
         );
